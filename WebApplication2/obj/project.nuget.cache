@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+/XvpczYmJHSrO3T8Fjee39KZJq1e3CMVcO6mhMV/JHTf4SwtAx/22ctcV5wx5HqsspdcD9eZTUi8eE02rNI9A==",
+  "dgSpecHash": "6Q6Ocb5UQ9WQaUeZD3VWYFQV24VS0fADdeV3aWAiKHA6gtiNyxHtKEW9GtPs/Tb88SoNUro4fedDaQtdjKq13w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Куаныш\\Downloads\\API_C--d1ce6d5b57f16d7ba2d804e0a8e2772fa29689dd\\WebApplication2\\WebApplication2.csproj",
   "expectedPackageFiles": [
@@ -25,10 +25,11 @@
     "C:\\Users\\Куаныш\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\Куаныш\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
     "C:\\Users\\Куаныш\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "C:\\Users\\Куаныш\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
     "C:\\Users\\Куаныш\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.0.2\\system.identitymodel.tokens.jwt.8.0.2.nupkg.sha512",
     "C:\\Users\\Куаныш\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\Куаныш\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\Куаныш\\.nuget\\packages\\system.text.json\\6.0.7\\system.text.json.6.0.7.nupkg.sha512"
+    "C:\\Users\\Куаныш\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\Куаныш\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512"
   ],
   "logs": []
 }

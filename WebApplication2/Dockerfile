@@ -1,32 +1,32 @@
-# Указываем базовый образ с ASP.NET Runtime
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+# Г“ГЄГ Г§Г»ГўГ ГҐГ¬ ГЎГ Г§Г®ГўГ»Г© Г®ГЎГ°Г Г§ Г± ASP.NET Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-# Указываем образ для сборки с .NET SDK
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+# Г“ГЄГ Г§Г»ГўГ ГҐГ¬ Г®ГЎГ°Г Г§ Г¤Г«Гї Г±ГЎГ®Г°ГЄГЁ Г± .NET SDK
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-# Копируем файл проекта и выполняем dotnet restore
+# ГЉГ®ГЇГЁГ°ГіГҐГ¬ ГґГ Г©Г« ГЇГ°Г®ГҐГЄГІГ  ГЁ ГўГ»ГЇГ®Г«Г­ГїГҐГ¬ dotnet restore
 COPY ["WebApplication2/WebApplication2.csproj", "WebApplication2/"]
 RUN dotnet restore "./WebApplication2/WebApplication2.csproj"
 
-# Копируем остальные файлы и выполняем сборку проекта
+# ГЉГ®ГЇГЁГ°ГіГҐГ¬ Г®Г±ГІГ Г«ГјГ­Г»ГҐ ГґГ Г©Г«Г» ГЁ ГўГ»ГЇГ®Г«Г­ГїГҐГ¬ Г±ГЎГ®Г°ГЄГі ГЇГ°Г®ГҐГЄГІГ 
 COPY . .
 WORKDIR "/src/WebApplication2"
 RUN dotnet build "./WebApplication2.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# Публикация приложения
+# ГЏГіГЎГ«ГЁГЄГ Г¶ГЁГї ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./WebApplication2.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# Финальный образ, на котором будет запущено приложение
+# Г”ГЁГ­Г Г«ГјГ­Г»Г© Г®ГЎГ°Г Г§, Г­Г  ГЄГ®ГІГ®Г°Г®Г¬ ГЎГіГ¤ГҐГІ Г§Г ГЇГіГ№ГҐГ­Г® ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГҐ
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-# Указываем точку входа для запуска приложения
+# Г“ГЄГ Г§Г»ГўГ ГҐГ¬ ГІГ®Г·ГЄГі ГўГµГ®Г¤Г  Г¤Г«Гї Г§Г ГЇГіГ±ГЄГ  ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї
 ENTRYPOINT ["dotnet", "WebApplication2.dll"]
